@@ -1,0 +1,80 @@
+﻿
+@*This is the design for home page using bootsstrap*@
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1>Welcome to Book Store</h1>
+        <p class="lead text-muted">
+            If you're anything like us, then your passion for reading and writing doesn't end with the novels on your shelf or the scrawls in your notebook you're always interested in what's going on in the literary world, from the latest publishing news to interviews with authors and writing advice columns.
+        </p>
+        <p> <a href="#" class="btn btn-primary my-2">Search Books</a> </p>
+    </div>
+</section>
+
+<div class="py-5 bg-light">
+    <div class="container">
+        <h3 class="h3">Top books</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="placeholder card-img-top" width="100%" height="225" src="~/photo/1.jpg"> </img>
+                    <div class="card-body">
+                        <p class="card-text">This section will be used to display the short description of the book.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View details</a>
+                            </div>
+                            <small class="text-muted">Author name</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="placeholder card-img-top" width="100%" height="225" src="~/photo/2.jpg"> </img>
+                    <div class="card-body">
+                        <p class="card-text">This section will be used to display the short description of the book.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View details</a>
+                            </div>
+                            <small class="text-muted">Author name</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="placeholder card-img-top" width="100%" height="225" src="~/photo/3.jpg"> </img>
+                    <div class="card-body">
+                        <p class="card-text">This section will be used to display the short description of the book.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View details</a>
+                            </div>
+                            <small class="text-muted">Author name</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*.......................................................................................................................................................................................................................
+    Sometimes we need to call an specific portion of view in the _Layout,cshtml page. to do that define @section and call it in the _Layout,cshtml view as @RenderSection("ready", required: false) but remember name must be same.
+        @section ready{
+        <script>
+            $(document).ready(function () {
+                console.log("Hi, This is Section & RenderSection Execution");
+            })
+        </script>
+    }*@
+
+@*.......................................................................................................................................................................................................................
+    Image using wwwroot folder
+    <img src="~/photo/1.jpg" /><br />
+
+    Image using custome folder named MyStaticFiles. To do that go to For adding custom static files in Startup.css
+    <img src="~/MyStaticFiles/1.jpg" />*@

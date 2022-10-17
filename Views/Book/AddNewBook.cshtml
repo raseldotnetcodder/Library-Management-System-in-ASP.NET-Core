@@ -1,0 +1,97 @@
+﻿@model BookModel
+@using BookStore.Enums
+
+<div class="container">
+    <h3 class="display-4">Add new book</h3>
+    @if (ViewBag.isSuccess == true)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Congratulations</strong> You have add a new book successfully.<br />
+            Click <a asp-action="GetBook" asp-controller="Book" asp-route-id="@ViewBag.BookId">here</a> to view the details.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <div class="d-flex justify-content-center" >
+        <div class="spinner-border" id="myLoader" role="status" style="display:none" >
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" asp-action="AddNewBook" asp-controller="Book" data-ajax="true"
+          data-ajax-success="mySuccess" data-ajax-complete="myComplete" data-ajax-failure="myFailure"
+          data-ajax-loading="#myLoader">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Author"></label>
+            <input asp-for="Author" class="form-control" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LanguageId"></label>
+            <select asp-for="LanguageId" asp-items="ViewBag.language" class="form-control">
+                <option value="">-- Select Language --</option>
+            </select>
+            <span asp-validation-for="LanguageId" class="text-danger"></span>
+        </div>
+        @*<div class="form-group">
+                <label asp-for="MultiLanguage"></label>
+                <select asp-for="MultiLanguage" asp-items="ViewBag.language" multiple class="form-control">
+                    <option value="">-- Select Language --</option>
+                </select>
+                <span asp-validation-for="MultiLanguage" class="text-danger"></span>
+            </div>*@
+        @*<div class="form-group">
+                <label asp-for="LanguageEnum"></label>
+                <select asp-for="LanguageEnum" asp-items="Html.GetEnumSelectList<LanguageEnum>()" class="form-control">
+                    <option value="">-- Select Language --</option>
+                </select>
+                <span asp-validation-for="LanguageEnum" class="text-danger"></span>
+            </div>*@
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TotalPages"></label>
+            <input asp-for="TotalPages" class="form-control" />
+            <span asp-validation-for="TotalPages" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CoverPhoto"></label>
+            <div class="custom-file">
+                <label class="custom-file-label" for="customFile">Choose File</label>
+                <input asp-for="CoverPhoto" class="custom-file-input" id="customFile">
+            </div>
+            <span asp-validation-for="CoverPhoto" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="ADD BOOK" class="btn btn-primary btn-block" />
+        </div>
+    </form>
+</div>
+
+@section scripts{ 
+    <script>
+        function mySuccess(data) {
+            alert("I am from success");
+            console.log(data);
+        }
+        function myComplete(data) {
+            alert("I am from complete");
+            console.log(data);
+        }
+        function myFailure(data) {
+            alert("I am from failure");
+            console.log(data);
+        }
+    </script>
+}

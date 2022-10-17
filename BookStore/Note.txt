@@ -1,0 +1,3 @@
+O/RM (Object-relational mapper): O/RM is a tool and is used to manage database data from an object-oriented perspective.
+I means Database table will converted into Classes and Column will converted into Properties. To avoid compile time error it helps a lot. To generate database tables or classes we can use either code first or database first approach.
+EF COre works with the help of Model. A model is made up of entity classes and a context object.
